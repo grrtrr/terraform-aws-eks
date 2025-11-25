@@ -540,6 +540,8 @@ resource "aws_iam_role_policy_attachment" "this" {
       AmazonEKSWorkerNodePolicy          = "${local.iam_role_policy_prefix}/AmazonEKSWorkerNodePolicy"
       AmazonEC2ContainerRegistryReadOnly = "${local.iam_role_policy_prefix}/AmazonEC2ContainerRegistryReadOnly"
     },
+    local.ipv4_cni_policy,
+    local.ipv6_cni_policy
   ) : k => v } : {}
 
   policy_arn = each.value
